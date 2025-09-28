@@ -1,0 +1,14 @@
+# Scooter configuration file
+
+[editor_open]
+# Command executed when pressing 'e' on search results.
+# Use %file for the file path and %line for the line number
+command = "vi %file +%line"
+# Whether to exit Scooter after running the editor command (default false)
+exit = false
+
+[preview]
+# Enable or disable syntax highlighting in preview (default true)
+syntax_highlighting = true
+# Choose theme for syntax highlighting (default "base16-eighties.dark")
+syntax_highlighting_theme = "Catppuccin Macchiato"

@@ -1,0 +1,6 @@
+[user]
+name = "David Allen"
+email = "info@spondycode.dev"
+
+[ui]
+default-command = "log"

@@ -1,0 +1,22 @@
+[user]
+  name = David Allen
+	email = spondicious@me.com
+[push]
+	default = matching
+[alias]
+  co = checkout
+  st = status -s
+  sta = status
+  conf = config --global --edit
+  cge = config --global --edit
+  ci = commit
+  co = checkout
+  cod = checkout .
+  rh = reset HEAD
+  aa = add -A
+  cdf = clean -df
+  pr = pull --rebase
+  br = branch
+  bra = branch -a
+  amend = commit -a --amend --no-edit
+  ciam = commit -a --amend --no-edit
