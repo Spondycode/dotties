@@ -1,6 +1,5 @@
 "$schema" = 'https://starship.rs/config-schema.json'
 
-
 format = """
 [](color_orange)\
 $os\
@@ -12,6 +11,7 @@ $git_branch\
 $git_status\
 [](fg:color_aqua bg:color_blue)\
 $c\
+$cpp\
 $rust\
 $golang\
 $nodejs\
@@ -23,12 +23,11 @@ $python\
 [](fg:color_blue bg:color_bg3)\
 $docker_context\
 $conda\
+$pixi\
 [](fg:color_bg3 bg:color_bg1)\
 $time\
 [ ](fg:color_bg1)\
 $line_break$character"""
-
-add_newline = true
 
 palette = 'gruvbox_dark'
 
@@ -69,6 +68,7 @@ CentOS = ""
 Debian = "󰣚"
 Redhat = "󱄛"
 RedHatEnterprise = "󱄛"
+Pop = ""
 
 [username]
 show_always = true
@@ -83,13 +83,11 @@ truncation_length = 3
 truncation_symbol = "…/"
 
 [directory.substitutions]
-"Documents" = " 🗄️ "
-"Downloads" = "⬇️ "
-"Music" = "🎶 "
-"Pictures" = "🖌️ "
-"code" = "💻 "
-"projects" = "💎 "
-"rust" = "🦀 "
+"Documents" = "󰈙 "
+"Downloads" = " "
+"Music" = "󰝚 "
+"Pictures" = " "
+"Developer" = "󰲋 "
 
 [git_branch]
 symbol = ""
@@ -110,6 +108,11 @@ symbol = " "
 style = "bg:color_blue"
 format = '[[ $symbol( $version) ](fg:color_fg0 bg:color_blue)]($style)'
 
+[cpp]
+symbol = " "
+style = "bg:color_blue"
+format = '[[ $symbol( $version) ](fg:color_fg0 bg:color_blue)]($style)'
+
 [rust]
 symbol = ""
 style = "bg:color_blue"
@@ -126,7 +129,7 @@ style = "bg:color_blue"
 format = '[[ $symbol( $version) ](fg:color_fg0 bg:color_blue)]($style)'
 
 [java]
-symbol = " "
+symbol = ""
 style = "bg:color_blue"
 format = '[[ $symbol( $version) ](fg:color_fg0 bg:color_blue)]($style)'
 
@@ -140,18 +143,10 @@ symbol = ""
 style = "bg:color_blue"
 format = '[[ $symbol( $version) ](fg:color_fg0 bg:color_blue)]($style)'
 
-# [python]
-# symbol = ""
-# style = "bg:color_blue"
-# format = '[[ $symbol( $version) ](fg:color_fg0 bg:color_blue)]($style)'
-
 [python]
-format = "via [🐍 $symbol($virtualenv)]($style) "
-symbol = " "  # Optional: Change the symbol to your preference
-style = "yellow bold"
-python_binary = "python"  # Can be set to python3 or python, depending on your system
-disabled = false
-
+symbol = ""
+style = "bg:color_blue"
+format = '[[ $symbol( $version) ](fg:color_fg0 bg:color_blue)]($style)'
 
 [docker_context]
 symbol = ""
@@ -161,6 +156,10 @@ format = '[[ $symbol( $context) ](fg:#83a598 bg:color_bg3)]($style)'
 [conda]
 style = "bg:color_bg3"
 format = '[[ $symbol( $environment) ](fg:#83a598 bg:color_bg3)]($style)'
+
+[pixi]
+style = "bg:color_bg3"
+format = '[[ $symbol( $version)( $environment) ](fg:color_fg0 bg:color_bg3)]($style)'
 
 [time]
 disabled = false
