@@ -165,6 +165,9 @@ return {
     opts = function()
       return {
         --[[add your custom lualine config here]]
+        -- theme = "tokyonight",
+        -- component_separators = "|",
+        -- section_separators = "§",
       }
     end,
   },
