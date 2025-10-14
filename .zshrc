@@ -171,6 +171,8 @@ eval "$(atuin init zsh)"
 
 eval "$(starship init zsh)"
 
+eval 'eval "$(goenv init -)"'
+
 # --- Yazi setup ---
 export EDITOR="nvim"
  
@@ -197,3 +199,4 @@ autoload -U compinit
 compinit
 source <(jj util completion zsh)
 
+export PATH="$(go env GOPATH)/bin:$PATH"
