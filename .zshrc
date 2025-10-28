@@ -34,6 +34,11 @@ alias y="yazi"
 alias zel="zellij"
 alias zelw="zellij -l welcome"
 
+# alias for MySQL
+alias mysql=/usr/local/mysql/bin/mysql
+alias mysqladmin=/usr/local/mysql/bin/mysqladmin
+
+
 # fzf aliases
 # use fp to do a fzf search and preview the files
 alias fp="fzf --preview 'bat --style=numbers --color=always --line-range :500 {}'"
