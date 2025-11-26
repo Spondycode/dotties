@@ -1,4 +1,4 @@
-# Path to your oh-my-zsh inssallation.
+# Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
 ZSH_THEME="robbyrussell"
@@ -60,7 +60,6 @@ alias awa="aerospace list-windows --all"
 # alias pfr="pip freeze >requirements.txt"
 # alias pmsu="python manage.py createsuperuser"
 # alias pmcs="python manage.py collectstatic"
-# alias piup="pip install --upgrade pip"
 #python manage.py collectstatic TMUX aliases
 
 # alias ta="tmux -u -f $TMUX_CONFIG attach"
@@ -81,7 +80,6 @@ alias .....="cd ../../../.."
 alias ......="cd ../../../../.."
 
 
-export EDITOR='nvim'
 
 # Note taking easy in the terminal
 function note {
@@ -106,24 +104,24 @@ eval "$(zoxide init zsh)"
 
 
  # bun completions
-[ -s "/Users/cersei/.bun/_bun" ] && source "/Users/cersei/.bun/_bun"
+[ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
 
  # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
-export PATH="/Users/cersei/.local/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
 
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/Users/cersei/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+__conda_setup="$("$HOME/miniconda3/bin/conda" 'shell.zsh' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
     eval "$__conda_setup"
 else
-    if [ -f "/Users/cersei/miniconda3/etc/profile.d/conda.sh" ]; then
-        . "/Users/cersei/miniconda3/etc/profile.d/conda.sh"
+    if [ -f "$HOME/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "$HOME/miniconda3/etc/profile.d/conda.sh"
     else
-        export PATH="/Users/cersei/miniconda3/bin:$PATH"
+        export PATH="$HOME/miniconda3/bin:$PATH"
     fi
 fi
 unset __conda_setup
@@ -169,14 +167,14 @@ setopt hist_verify
 
 # completion using arrow keys (based on history)
 bindkey '^[[A' history-search-backward
-bindkey '^[[B' history-search-backward
+bindkey '^[[B' history-search-forward
 # source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 # source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 eval "$(atuin init zsh)"
 
 eval "$(starship init zsh)"
 
-eval 'eval "$(goenv init -)"'
+eval "$(goenv init -)"
 
 # --- Yazi setup ---
 export EDITOR="nvim"
@@ -189,7 +187,7 @@ yazi() {
   if [ -f "$tmpfile" ]; then
     local last_dir
     last_dir=$(cat "$tmpfile")
-    rm -f "$tmpfile"
+    command rm -f "$tmpfile"
     if [ -d "$last_dir" ]; then
       cd "$last_dir"
     fi
@@ -205,3 +203,9 @@ compinit
 source <(jj util completion zsh)
 
 export PATH="$(go env GOPATH)/bin:$PATH"
+
+. "$HOME/.local/bin/env"
+export PATH="/opt/homebrew/opt/postgresql@16/bin:$PATH"
+
+# Added by Antigravity
+export PATH="/Volumes/Wookie/Users/Oberyn/.antigravity/antigravity/bin:$PATH"
