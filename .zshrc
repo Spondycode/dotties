@@ -33,6 +33,7 @@ alias ppp="pass"
 alias y="yazi"
 alias zel="zellij"
 alias zelw="zellij -l welcome"
+alias pbp="pbpaste"
 
 # alias for MySQL
 alias mysql=/usr/local/mysql/bin/mysql
@@ -184,14 +185,16 @@ export EDITOR="nvim"
 yazi() {
   local tmpfile=$(mktemp)
   command yazi --cwd-file="$tmpfile" "$@"
+  local yazi_exit_status=$?
   if [ -f "$tmpfile" ]; then
     local last_dir
     last_dir=$(cat "$tmpfile")
     command rm -f "$tmpfile"
-    if [ -d "$last_dir" ]; then
+    if [ -d "$last_dir" ] && [ "$last_dir" != "$PWD" ]; then
       cd "$last_dir"
     fi
   fi
+  return $yazi_exit_status
 }
 
 
@@ -209,3 +212,43 @@ export PATH="/opt/homebrew/opt/postgresql@16/bin:$PATH"
 
 # Added by Antigravity
 export PATH="/Volumes/Wookie/Users/Oberyn/.antigravity/antigravity/bin:$PATH"
+alias pt="youtube_transcript_api"
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/Volumes/Wookie/Users/Oberyn/.lmstudio/bin"
+# End of LM Studio CLI section
+
+
+# Fix invalid HTTP timeout format error
+unset HTTP_TIMEOUT
+unset HTTPS_TIMEOUT
+
+# Fabric
+# Loop through all files in the ~/.config/fabric/patterns directory
+for pattern_file in $HOME/.config/fabric/patterns/*; do
+    # Get the base name of the file (i.e., remove the directory path)
+    pattern_name="$(basename "$pattern_file")"
+    alias_name="${FABRIC_ALIAS_PREFIX:-}${pattern_name}"
+
+    # Create an alias in the form: alias pattern_name="fabric --pattern pattern_name"
+    alias_command="alias $alias_name='fabric --pattern $pattern_name'"
+
+    # Evaluate the alias command to add it to the current shell
+    eval "$alias_command"
+done
+
+yt() {
+    if [ "$#" -eq 0 ] || [ "$#" -gt 2 ]; then
+        echo "Usage: yt [-t | --timestamps] youtube-link"
+        echo "Use the '-t' flag to get the transcript with timestamps."
+        return 1
+    fi
+
+    transcript_flag="--transcript"
+    if [ "$1" = "-t" ] || [ "$1" = "--timestamps" ]; then
+        transcript_flag="--transcript-with-timestamps"
+        shift
+    fi
+    local video_link="$1"
+    fabric -y "$video_link" $transcript_flag
+}
