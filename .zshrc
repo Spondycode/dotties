@@ -197,6 +197,13 @@ yazi() {
   return $yazi_exit_status
 }
 
+# --- Lazygit setup ---
+lazygit() {
+  command lazygit "$@"
+  local lg_exit_status=$?
+  return $lg_exit_status
+}
+
 
 
 # JJ config 
