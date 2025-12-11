@@ -48,8 +48,6 @@ alias vf='nv $(fp)'
 
 alias ff="fzf | pbcopy" #find a file and put the path on clipboard
 
-alias awa="aerospace list-windows --all"
-
 
 # alias invim="nvim $(fzf --preview="bat --color=always {}")"
 
@@ -61,6 +59,8 @@ alias awa="aerospace list-windows --all"
 # alias pmsu="python manage.py createsuperuser"
 # alias pmcs="python manage.py collectstatic"
 #python manage.py collectstatic TMUX aliases
+alias uvs="uv run python manage.py runserver"
+
 
 # alias ta="tmux -u -f $TMUX_CONFIG attach"
 # alias tt="nvim $TMUX_CONFIG"
@@ -174,7 +174,7 @@ eval "$(atuin init zsh)"
 
 eval "$(starship init zsh)"
 
-eval "$(goenv init -)"
+# eval "$(goenv init -)"
 
 # --- Yazi setup ---
 export EDITOR="nvim"
@@ -213,7 +213,7 @@ source <(jj util completion zsh)
 
 export PATH="$(go env GOPATH)/bin:$PATH"
 
-. "$HOME/.local/bin/env"
+# . "$HOME/.local/bin/env"
 export PATH="/opt/homebrew/opt/postgresql@16/bin:$PATH"
 
 # Added by Antigravity
@@ -258,3 +258,7 @@ yt() {
     local video_link="$1"
     fabric -y "$video_link" $transcript_flag
 }
+autoload -U compinit; compinit
+
+# Added by Antigravity
+export PATH="/Users/cersei/.antigravity/antigravity/bin:$PATH"

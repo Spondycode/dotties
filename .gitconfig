@@ -23,3 +23,8 @@
 	bra = branch -a
 	amend = commit -a --amend --no-edit
 	ciam = commit -a --amend --no-editchasnovski
+[filter "lfs"]
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
