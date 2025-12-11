@@ -14,3 +14,7 @@ theme = tokyonight
 
 # command = /opt/homebrew/bin/nu
 
+# Fix terminal hanging after closing interactive apps
+shell-integration = detect
+shell-integration-features = cursor,sudo,title
+

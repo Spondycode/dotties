@@ -58,7 +58,6 @@ alias awa="aerospace list-windows --all"
 # alias pmm2="python manage.py migrate"
 # alias pmts="python manage.py tailwind start"
 # alias nrt="npm run tailwind"
-# alias pfr="pip freeze >requirements.txt"
 # alias pmsu="python manage.py createsuperuser"
 # alias pmcs="python manage.py collectstatic"
 #python manage.py collectstatic TMUX aliases
