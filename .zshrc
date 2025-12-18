@@ -261,4 +261,4 @@ yt() {
 autoload -U compinit; compinit
 
 # Added by Antigravity
-export PATH="/Users/cersei/.antigravity/antigravity/bin:$PATH"
+export PATH="/Users/oberyn/.antigravity/antigravity/bin:$PATH"
