@@ -2,15 +2,7 @@ if status is-interactive
     # Commands to run in interactive sessions can go here
 end
 
-set fish_greeting # Supress the into message
-
-# function fish_prompt
-#     # Show shell name plus cwd, then >
-#     set -l shell_name (basename (status fish-path))
-#     printf '[%s] %s > ' $shell_name (prompt_pwd)
-# end
-
-function yy
+function y
     set tmp (mktemp -t "yazi-cwd.XXXXXX")
     yazi $argv --cwd-file="$tmp"
     if set cwd (command cat -- "$tmp"); and test -n "$cwd"; and test "$cwd" != "$PWD"
@@ -51,8 +43,6 @@ alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
 
-eval (/opt/homebrew/bin/brew shellenv)
-
 # FZF
 alias sf="fd --type f --hidden --exclude .git | fzf --multi --preview 'bat --color=always {}'| xargs nvim"
 
@@ -64,6 +54,8 @@ fzf --fish | source
 
 ## FZF_Defaults ##
 set FZF_DEFAULT_OPTS "--layout=reverse --border=bold --border=rounded --margin=3% --color=dark"
+
+eval (/opt/homebrew/bin/brew shellenv)
 set -Ux EDITOR nvim
 set -Ux VISUAL nvim
 
