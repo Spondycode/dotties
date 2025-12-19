@@ -25,7 +25,10 @@ end
 
 funcsave lg
 
+#Abreviations
 abbr --add c command clear
+abbr --add zel command zellij
+abbr --add zelw command zellij -l welcome
 
 # Aliases from zsh
 alias lumos="eza -alh --icons=always --no-user --group-directories-first"
@@ -34,8 +37,6 @@ alias ll="eza -lh --color=always --no-user --icons=always --group-directories-fi
 alias ls="eza --icons=always --group-directories-first"
 alias tree="eza --tree"
 
-alias zel="zellij"
-alias zelw="zellij -l welcome"
 alias pbp="pbpaste"
 
 # Dirs
@@ -61,3 +62,5 @@ set -Ux VISUAL nvim
 
 starship init fish | source
 zoxide init fish | source
+
+set -g fish_greeting 'Hey, stranger!'
