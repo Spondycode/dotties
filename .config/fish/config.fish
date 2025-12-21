@@ -19,16 +19,16 @@ function gs
     git status $argv
 end
 
-function lg
-    lazygit $argv
-end
-
-funcsave lg
+# function lg
+#     lazygit $argv
+# end
+# funcsave lg
 
 #Abreviations
 abbr --add c command clear
 abbr --add zel command zellij
 abbr --add zelw command zellij -l welcome
+abbr --add lg command lazygit
 
 # Aliases from zsh
 alias lumos="eza -alh --icons=always --no-user --group-directories-first"
@@ -51,7 +51,7 @@ alias sf="fd --type f --hidden --exclude .git | fzf --multi --preview 'bat --col
 #Ctrl-t = fzf select
 #Ctrl-r = fzf history
 #Alt-c = fzf cd
-fzf --fish | source
+# fzf --fish | source
 
 ## FZF_Defaults ##
 set FZF_DEFAULT_OPTS "--layout=reverse --border=bold --border=rounded --margin=3% --color=dark"
