@@ -1,0 +1,20 @@
+# yazi.toml
+
+[manager]
+show_hidden = true
+linemode = "size_and_mtime"
+
+# [opener]
+# edit = [
+#	{ run = 'nvim "$@"', block = true },
+#]
+#play = [
+#	{ run = 'mpv "$@"', orphan = true, for = "unix" },
+#]
+
+[opener]
+edit = [
+  { run = 'nvim "$@"', block = true, desc = "Edit in Neovim", for = "unix" },
+]
+
+
